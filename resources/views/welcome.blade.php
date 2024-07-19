@@ -44,6 +44,8 @@
             margin-left: 180px; /* Asegura que el contenido principal no se superponga con el menú izquierdo */
             margin-top: 50px;
         }
+
+   
     </style>
 
 </head>
@@ -59,8 +61,18 @@
 
 <!-- Visualizacion de la pagina -->
 
+
+
 <main>
 
+    <p>Seleccionar Cliente</p>
+    
+    <select aria-label="Default select example" style="background-color:#ffffff;color: rgb(0, 0, 0); padding: 5px 30px; border-radius: 5px;">
+         <option selected>Clientes</option>
+    </select>
+    
+    <p style="margin-top: 30px">Buscar por atributo</p>
+ 
     <div id="wrapper"></div>
     
 </main>

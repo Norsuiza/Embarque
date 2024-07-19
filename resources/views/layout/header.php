@@ -1,7 +1,7 @@
 
     <!-- Nav Bar Parte Superior de la pagina -->
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(139, 216, 124); margin-left: 167px; margin-bottom: 20px;">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(139, 216, 124); margin-left: 165px; margin-bottom: 20px;">
     <div class="container">
         <a class="navbar-brand" href="#">
             <i class="fas fa-truck"></i> Embarques
