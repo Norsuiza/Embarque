@@ -65,6 +65,8 @@
 
 <main>
 
+
+        
     <p>Seleccionar Cliente</p>
     
     <select aria-label="Default select example" style="background-color:#ffffff;color: rgb(0, 0, 0); padding: 5px 30px; border-radius: 5px;">
@@ -89,16 +91,14 @@
                         pagination:{
                             limit:6
                         },
-                        columns:["id","name","email","gender"],
+                        columns:["Id","Nombre"],
                         server:{
-                            url:"https://gorest.co.in/public/v2/users",
+                            url:"http://localhost:8000/api/clientes/",
                             then: data=>{
                                 console.log(data);
                                 return data.map(item=>[
                                     item.id,
-                                    item.name,
-                                    item.email,
-                                    item.gender
+                                    item.nombre,
                                 ])
                             }
 
