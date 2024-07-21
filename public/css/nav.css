@@ -1,0 +1,33 @@
+/* Estilos para el menú izquierdo */
+.menu-izquierdo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #333; /* Color de fondo del menú izquierdo */
+    color: white; /* Color del texto */
+    padding: 40px;
+    overflow-y: auto;
+    z-index: 1000; /* Asegura que el menú izquierdo esté por encima de otros elementos */
+}
+
+.menu-izquierdo a {
+    display: block;
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none;
+    padding: 15% 0;
+
+}
+
+.menu-izquierdo a:hover {
+    background-color: #555; /* Color de fondo al hacer hover en los enlaces */
+}
+
+/* Ajuste de margen izquierdo para el contenido principal */
+main {
+    padding: 2%;
+
+    margin-left: 90px; /* Asegura que el contenido principal no se superponga con el menú izquierdo */
+    margin-top: 50px;
+}
+

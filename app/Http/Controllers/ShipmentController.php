@@ -47,4 +47,20 @@ class ShipmentController extends Controller
     {
         //
     }
+
+    public function getShipmentByClient ($clientId) {
+
+    }
+    
+    
+    public function getShipmentsForProducerClient($clientId, $producerId){
+    
+    $shipments = Shipment::join('clients', 'shipments.client_id', '=', 'clients.id')
+    ->where('clients.id', $clientId)
+    ->where('shipments.producer_id', $producerId)
+    ->select('shipments.*')
+    ->get();
+
+    return response()->json($shipments); }
+    
 }
