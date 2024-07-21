@@ -1,4 +1,6 @@
+$producerid = 2;
 $(document).ready(function() {
+
     // Función para cargar clientes
     function loadClients(ProducerId) {
         $.getJSON(`/clients/${ProducerId}`, function(clients) {
@@ -7,18 +9,18 @@ $(document).ready(function() {
             $.each(clients, function(_, client) {
                 $clientSelect.append(
                     $('<option>', {
-                        value: client.id,       
-                        text: client.name,     
+                        value: client.id,
+                        text: client.name,
                     })
                 );
             });
         });
     }
 
-    // Productor al que peternece la vista
-    loadClients(2);
 
-function loadShipments(clientId, producerId) {
+   loadClients($producerid);
+
+    function loadShipments(clientId, producerId) {
     grid.updateConfig({
         server: {
             url: `/shipments/${clientId}/${producerId}`,
@@ -44,7 +46,9 @@ function loadShipments(clientId, producerId) {
 }
 
     const grid = new gridjs.Grid({
-        search: true,
+        search: {
+            placeholder: 'Buscar por atributo'
+        },
         sort: true,
         pagination: {
             limit: 6
@@ -53,6 +57,8 @@ function loadShipments(clientId, producerId) {
             "Folio", "Numero de embarque", "Fecha", "Hora", "Contract", "Partner", "Temporada", "Conductor", "Transporte", "N. Caja refrigerada", "Total de pallets", "Estatus de descarga"
         ],
         data: [] // Datos iniciales vacíos
+
+
     }).render(document.getElementById('wrapper'));
 
     // Actualiza el grid cuando se selecciona un cliente
@@ -65,5 +71,6 @@ function loadShipments(clientId, producerId) {
             grid.updateConfig({ data: [] }).forceRender();
         }
     });
-
 });
+
+document.getElementById("resultado").innerHTML = $producerid;
