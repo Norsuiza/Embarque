@@ -12,7 +12,8 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        //
+        $shipments = Shipment::get();
+        return response()->json($shipments);
     }
 
     /**

@@ -30,7 +30,7 @@
             color: white; /* Color del texto de los enlaces */
             text-decoration: none;
             padding: 15% 0;
-            
+
         }
 
         .menu-izquierdo a:hover {
@@ -40,12 +40,12 @@
         /* Ajuste de margen izquierdo para el contenido principal */
         main {
             padding: 2%;
-          
-            margin-left: 180px; /* Asegura que el contenido principal no se superponga con el menú izquierdo */
+
+            margin-left: 90px; /* Asegura que el contenido principal no se superponga con el menú izquierdo */
             margin-top: 50px;
         }
 
-   
+
     </style>
 
 </head>
@@ -65,49 +65,54 @@
 
 <main>
 
-
-        
     <p>Seleccionar Cliente</p>
-    
+
+
     <select aria-label="Default select example" style="background-color:#ffffff;color: rgb(0, 0, 0); padding: 5px 30px; border-radius: 5px;">
-         <option selected>Clientes</option>
+         <option selected>s</option>
     </select>
-    
+
+
+
     <p style="margin-top: 30px">Buscar por atributo</p>
- 
     <div id="wrapper"></div>
-    
 </main>
 
 <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-            <script type="text/javascript">  
-
-
+<!--Tabla de embarques por cliente--->
+            <script type="text/javascript">
                     const grid=new gridjs.Grid({
                         search:true,
                         sort:true,
                         pagination:{
                             limit:6
                         },
-                        columns:["Id","Nombre"],
+                        columns:["Folio","Numero de embarque","Fecha","Hora","Contract","Partner","Temporada","Conductor","Transporte","N. Caja refrigerada","Total de pallets","Estatus de descarga"],
                         server:{
-                            url:"http://localhost:8000/api/clientes/",
+                            url:"http://localhost:8000/api/shipments/",
                             then: data=>{
                                 console.log(data);
                                 return data.map(item=>[
                                     item.id,
-                                    item.nombre,
+                                    item.shipment_number,
+                                    item.shipment_date,
+                                    item.shipment_hour,
+                                    item.contract,
+                                    item.partner_id,
+                                    item.season_id,
+                                    item.driver,
+
+                                    item.transport,
+                                    item.refrigerated_box,
+                                    item.pallets_total,
+                                    item.download_flag,
                                 ])
                             }
 
                         }
                     }).render(document.getElementById('wrapper'))
-
-
             </script>
-        
-
 </body>
 </html>

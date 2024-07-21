@@ -9,6 +9,5 @@ class Reunion extends Model
 {
     use HasFactory;
     protected $table ='reuniones';
-
     protected $fillable=['name','descripton'];
 }
